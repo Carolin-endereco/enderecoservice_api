@@ -1201,7 +1201,7 @@ POST https://endereco-service.de/rpc/v1
 | X-Transaction-Referer | www.example.de/register, siehe [Referrer übergeben](./providing-referrer.md) |
 | X-Auth-Key | siehe [Authentifizierung](#authentifizierung) |
 
-#### Body raw (JSON)
+#### Body raw der einfachen Prüfung (JSON)
 
 ```json
 {
@@ -1216,7 +1216,7 @@ POST https://endereco-service.de/rpc/v1
 
 Siehe [Dokumentation für Feldernamen](./fields.md).
 
-#### Antwort Basis
+#### Antwort Basis der einfachen Prüfung
 
 ```json
 {
@@ -1227,6 +1227,279 @@ Siehe [Dokumentation für Feldernamen](./fields.md).
       "vat_valid"
     ]
   }
+}
+```
+
+#### Body raw der qualifizierten Prüfung (JSON)
+
+```json
+{
+   "jsonrpc": "2.0",
+   "id": 1,
+   "method": "vatIdCheck",
+   "params": {
+      "vatId": "ATU76571345",
+      "requesterVatID": "DE297464149",
+      "companyName": "IQ Digital Health GmbH",
+      "companyPostalCode": "5082",
+      "companyLocality": "Grödig",
+      "companyStreetFull": "Via Sanitas,1"
+   }
+}
+```
+
+Siehe [Dokumentation für Feldernamen](./fields.md).
+
+#### Antwort Basis der qualifizierten Prüfung
+
+```json
+{
+   "jsonrpc": "2.0",
+   "id": 1,
+   "result": {
+      "predictions": [
+         {
+            "vatId": "ATU76571345",
+            "companyName": "BS Marketing Solution GmbH",
+            "companyAddress": "Pranzing 27, AT-4861 Aurach/Hongar"
+         }
+      ],
+      "cerification": {
+         "timestamp": "2023-05-19 13:04:50",
+         "source": "api.vat-search.eu"
+      },
+      "status": [
+         "vat_id_valid",
+         "vat_id_format_correct"
+      ]
+   }
+}
+```
+
+Siehe [Dokumentation für Feldernamen](./fields.md) und [Dokumentation für Status-Codes](./statuscodes.md).
+
+#### Body raw der qualifizierten Prüfung mit ungültiger Umsatzsteuerid (JSON)
+
+```json
+{
+   "jsonrpc": "2.0",
+   "id": 1,
+   "method": "vatIdCheck",
+   "params": {
+      "vatId": "ATU74538118",
+      "requesterVatID": "DE297464149",
+      "companyName": "IQ Digital Health GmbH",
+      "companyPostalCode": "5082",
+      "companyLocality": "Grödig",
+      "companyStreetFull": "Via Sanitas,1"
+   }
+}
+```
+
+Siehe [Dokumentation für Feldernamen](./fields.md).
+
+#### Antwort Basis der qualifizierten Prüfung mit ungültiger Umsatzsteuerid
+
+```json
+{
+   "jsonrpc": "2.0",
+   "id": 1,
+   "result": {
+      "predictions": [],
+      "cerification": {
+         "timestamp": "2023-05-19 13:29:04",
+         "source": "api.vat-search.eu"
+      },
+      "status": [
+         "vat_id_invalid",
+         "vat_id_format_correct"
+      ]
+   }
+}
+```
+
+Siehe [Dokumentation für Feldernamen](./fields.md) und [Dokumentation für Status-Codes](./statuscodes.md).
+
+#### Body raw der qualifizierten Prüfung mit kleinem Schreibfehler (JSON)
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "vatIdCheck",
+    "params": {
+        "vatId": "AT U74538119",
+        "requesterVatID": "DE297464149",
+        "companyName": "Ey",
+        "companyPostalCode": "5082",
+        "companyLocality": "Grödig",
+        "companyStreetFull": "Via Sanitas,1"
+    }
+}
+```
+
+Siehe [Dokumentation für Feldernamen](./fields.md).
+
+#### Antwort Basis der qualifizierten Prüfung mit kleinem Schreibfehler
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "predictions": [],
+        "cerification": {
+            "timestamp": "2023-05-19 13:32:54",
+            "source": "api.vat-search.eu"
+        },
+        "status": [
+            "vat_id_invalid",
+            "vat_id_format_invalid"
+        ]
+    }
+}
+```
+
+Siehe [Dokumentation für Feldernamen](./fields.md) und [Dokumentation für Status-Codes](./statuscodes.md).
+
+#### Body raw der qualifizierten Prüfung ohne Land (JSON)
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "vatIdCheck",
+    "params": {
+        "vatId": "U74538119",
+        "requesterVatID": "DE297464149",
+        "companyName": "IQ Digital Health GmbH",
+        "companyPostalCode": "5082",
+        "companyLocality": "Grödig",
+        "companyStreetFull": "Via Sanitas,1"
+    }
+}
+```
+
+Siehe [Dokumentation für Feldernamen](./fields.md).
+
+#### Antwort Basis der qualifizierten Prüfung ohne Land
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "status": [
+            "vat_id_invalid",
+            "vat_id_format_invalid"
+        ],
+        "predictions": []
+    }
+}
+```
+
+Siehe [Dokumentation für Feldernamen](./fields.md) und [Dokumentation für Status-Codes](./statuscodes.md).
+
+#### Body raw der qualifizierten Prüfung mit falschen Land (JSON)
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "vatIdCheck",
+    "params": {
+        "vatId": "ÜÜU74538118",
+        "requesterVatID": "DE297464149",
+        "companyName": "IQ Digital Health GmbH",
+        "companyPostalCode": "5082",
+        "companyLocality": "Grödig",
+        "companyStreetFull": "Via Sanitas,1"
+    }
+}
+```
+
+Siehe [Dokumentation für Feldernamen](./fields.md).
+
+#### Antwort Basis der qualifizierten Prüfung mit falschen Land
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "status": [
+            "vat_id_invalid",
+            "vat_id_format_invalid"
+        ],
+        "predictions": []
+    }
+}
+```
+
+Siehe [Dokumentation für Feldernamen](./fields.md) und [Dokumentation für Status-Codes](./statuscodes.md).
+
+#### Body raw der qualifizierten Prüfung mit falschen Format (JSON)
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "vatIdCheck",
+    "params": {
+        "vatId": "ATU7453811ASDF8",
+        "requesterVatID": "DE297464149",
+        "companyName": "IQ Digital Health GmbH",
+        "companyPostalCode": "5082",
+        "companyLocality": "Grödig",
+        "companyStreetFull": "Via Sanitas,1"
+    }
+}
+```
+
+Siehe [Dokumentation für Feldernamen](./fields.md).
+
+#### Antwort Basis der qualifizierten Prüfung mit falschen Format
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "status": [
+            "vat_id_invalid",
+            "vat_id_format_invalid"
+        ],
+        "predictions": []
+    }
+}
+```
+
+Siehe [Dokumentation für Feldernamen](./fields.md) und [Dokumentation für Status-Codes](./statuscodes.md).
+
+#### Body raw der qualifizierten Prüfung falsche Parameter (JSON)
+
+```json
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "vatIdCheck",
+    "params": {
+        "öljk": "ATU74538119"
+    }
+}
+```
+
+Siehe [Dokumentation für Feldernamen](./fields.md).
+
+#### Antwort Basis der qualifizierten Prüfung falsche Parameter
+
+```json
+{
+    "jsonrpc": "2.0",
+    "error": {
+        "code": -32603,
+        "message": "Field \"params.vatId\" must be set."
+    }
 }
 ```
 

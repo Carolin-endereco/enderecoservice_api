@@ -45,6 +45,11 @@ verarbeitet werden.
 | format | String | Enthält den Namen des Formats. Wird aktuell nur bei Rufnummernprüfung verwendet. Siehe [Liste der Rufnummernformate](#liste-der-rufnummernformate). |
 | iban | String | Enthält die IBAN. |
 | vatId | String | Enthält die Umsatzsteuer ID Nummer. |
+| requesterVatID | String | Enthält die eigene Umsatzsteuer ID Nummer. |
+| companyName | String | Enthält den Firnemname. |
+| companyPostalCode | String | Enthält die Postleitzahl der Firmenadresse. |
+| companyLocality | String | Enthält den Ort der Firmenadresse. |
+| companyStreetFull | String | Enthält die Straße mit Hausnummer und ggf. Adresszusatz der Firmenadresse. |
 | sessionId | String | Enthält die Session ID. Siehe [Doku für Sessions](./sessions-guideline.md). |
 
 ### Tabelle der Anrede-Codes
@@ -101,4 +106,9 @@ verarbeitet werden.
 | countryCentralBankName | String | ggf. enthält den Namen der Zentralbank. |
 | countryCentralBankUrl | String | ggf. enthält die URL auf die Website der Zentralbank. |
 | companyName | String | Enthält den Firmennamen. |
+| vatId | String | Enthällt die Umsatzsteuerid |
+| companyName | String | Enthällt den Firmennamen |
+| companyAddress | String | Enthällt die Firmenadresse. |
+| timestamp | String | Enthällt den Zeitpunkt der Abfrage. |
+| source | String | Enthällt die Datenquelle der Abfrage. |
 
