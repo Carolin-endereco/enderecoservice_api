@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7970fd32-04e3-4154-803e-16f2752277d9",
+		"_postman_id": "bb97b01e-a05c-48e7-82f0-13763c372a11",
 		"name": "Endereco API Beispiele",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -546,7 +546,7 @@
 			"response": []
 		},
 		{
-			"name": "Prüfung der Umsatzsteuer ID",
+			"name": "Einfache Prüfung der Umsatzsteuer ID",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -573,7 +573,362 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"method\": \"vatIdCheck\",\n  \"params\": {\n  \t\"vatId\": \"DE214205098\"\n  }\n}"
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"vatIdCheck\",\n    \"params\": {\n        \"vatId\": \"ATU76571345\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://endereco-service.de/rpc/v1",
+					"protocol": "https",
+					"host": [
+						"endereco-service",
+						"de"
+					],
+					"path": [
+						"rpc",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Qualifizierte Prüfung der Umsatzsteuer ID",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Id",
+						"value": "not_required",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Referer",
+						"value": "Postman",
+						"type": "text"
+					},
+					{
+						"key": "X-Agent",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"vatIdCheck\",\n    \"params\": {\n        \"vatId\": \"ATU76571345\",\n        \"requesterVatID\": \"DE297464149\",\n        \"companyName\": \"IQ Digital Health GmbH\",\n        \"companyPostalCode\": \"5082\",\n        \"companyLocality\": \"Grödig\",\n        \"companyStreetFull\": \"Via Sanitas,1\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://endereco-service.de/rpc/v1",
+					"protocol": "https",
+					"host": [
+						"endereco-service",
+						"de"
+					],
+					"path": [
+						"rpc",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Qualifizierte Prüfung der Umsatzsteuer ID (ungültige ID)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Id",
+						"value": "not_required",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Referer",
+						"value": "Postman",
+						"type": "text"
+					},
+					{
+						"key": "X-Agent",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"vatIdCheck\",\n    \"params\": {\n        \"vatId\": \"ATU74538118\",\n        \"requesterVatID\": \"DE297464149\",\n        \"companyName\": \"IQ Digital Health GmbH\",\n        \"companyPostalCode\": \"5082\",\n        \"companyLocality\": \"Grödig\",\n        \"companyStreetFull\": \"Via Sanitas,1\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://endereco-service.de/rpc/v1",
+					"protocol": "https",
+					"host": [
+						"endereco-service",
+						"de"
+					],
+					"path": [
+						"rpc",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Qualifizierte Prüfung der Umsatzsteuer ID (kleinem Schreibfehler)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Id",
+						"value": "not_required",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Referer",
+						"value": "Postman",
+						"type": "text"
+					},
+					{
+						"key": "X-Agent",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"vatIdCheck\",\n    \"params\": {\n        \"vatId\": \"AT U74538119\",\n        \"requesterVatID\": \"DE297464149\",\n        \"companyName\": \"Ey\",\n        \"companyPostalCode\": \"5082\",\n        \"companyLocality\": \"Grödig\",\n        \"companyStreetFull\": \"Via Sanitas,1\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://endereco-service.de/rpc/v1",
+					"protocol": "https",
+					"host": [
+						"endereco-service",
+						"de"
+					],
+					"path": [
+						"rpc",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Qualifizierte Prüfung der Umsatzsteuer ID (fehlendes Land)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Id",
+						"value": "not_required",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Referer",
+						"value": "Postman",
+						"type": "text"
+					},
+					{
+						"key": "X-Agent",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"vatIdCheck\",\n    \"params\": {\n        \"vatId\": \"U74538119\",\n        \"requesterVatID\": \"DE297464149\",\n        \"companyName\": \"IQ Digital Health GmbH\",\n        \"companyPostalCode\": \"5082\",\n        \"companyLocality\": \"Grödig\",\n        \"companyStreetFull\": \"Via Sanitas,1\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://endereco-service.de/rpc/v1",
+					"protocol": "https",
+					"host": [
+						"endereco-service",
+						"de"
+					],
+					"path": [
+						"rpc",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Qualifizierte Prüfung der Umsatzsteuer ID (falsches Land)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Id",
+						"value": "not_required",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Referer",
+						"value": "Postman",
+						"type": "text"
+					},
+					{
+						"key": "X-Agent",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"vatIdCheck\",\n    \"params\": {\n        \"vatId\": \"ÜÜU74538118\",\n        \"requesterVatID\": \"DE297464149\",\n        \"companyName\": \"IQ Digital Health GmbH\",\n        \"companyPostalCode\": \"5082\",\n        \"companyLocality\": \"Grödig\",\n        \"companyStreetFull\": \"Via Sanitas,1\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://endereco-service.de/rpc/v1",
+					"protocol": "https",
+					"host": [
+						"endereco-service",
+						"de"
+					],
+					"path": [
+						"rpc",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Qualifizierte Prüfung der Umsatzsteuer ID (falsches Format)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Id",
+						"value": "not_required",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Referer",
+						"value": "Postman",
+						"type": "text"
+					},
+					{
+						"key": "X-Agent",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"vatIdCheck\",\n    \"params\": {\n        \"vatId\": \"ATU7453811ASDF8\",\n        \"requesterVatID\": \"DE297464149\",\n        \"companyName\": \"IQ Digital Health GmbH\",\n        \"companyPostalCode\": \"5082\",\n        \"companyLocality\": \"Grödig\",\n        \"companyStreetFull\": \"Via Sanitas,1\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://endereco-service.de/rpc/v1",
+					"protocol": "https",
+					"host": [
+						"endereco-service",
+						"de"
+					],
+					"path": [
+						"rpc",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Einfachte Prüfung der Umsatzsteuer ID (Falsche Übergabeparameter)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Id",
+						"value": "not_required",
+						"type": "text"
+					},
+					{
+						"key": "X-Transaction-Referer",
+						"value": "Postman",
+						"type": "text"
+					},
+					{
+						"key": "X-Agent",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"vatIdCheck\",\n    \"params\": {\n        \"öljk\": \"ATU74538119\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "https://endereco-service.de/rpc/v1",
