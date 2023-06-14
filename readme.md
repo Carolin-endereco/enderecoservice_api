@@ -1,9 +1,9 @@
 # Endereco Services API
 
-Die Endereco Services API ermöglicht einen automatisierbaren Zugriff in Echtzeit auf
+Die Endereco Addressmanagement Services API ermöglicht einen automatisierbaren Zugriff in Echtzeit auf
 die [Services der Firma Endereco UG (haftungsb.) - Gesellschaft für Master Data Quality Management](https://www.endereco.de/services/)
 . Darunter fallen die Prüfungen von internationalen postalischen Adressen aus über 200 Ländern, die Prüfung von E-Mail
-Adressen, Telefonnummern, Namen und anderen Stammdaten von Personen oder Firmen.
+Adressen, Telefonnummern, Namen und anderen Stammdaten von Personen oder Firmen. (B2C und B2B Services)
 
 ## Über 200 Unternehmen prüfen bereits ihre Stammdaten mit Endereco
 
@@ -57,8 +57,8 @@ Wie kannst du auf unsere API zugreifen?
 
 | Art der Frage | zuständige Person | Kontakt |
 |---|---|---|
-| geschäftliche Fragen | Robert Rieser  |  info@endereco.de |
-| technische Fragen | Ilja Weber |  support@endereco.de  |
+| Geschäftliche Fragen | Robert Rieser  |  info@endereco.de |
+| Technische Fragen | Ilja Weber |  support@endereco.de  |
 | Fragen zur Datenschutz | Lena Schmitt | datenschutz@endereco.de |
 
 ## Übersicht der Funktionen
@@ -1408,7 +1408,7 @@ Siehe [Dokumentation für Feldernamen](./fields.md) und [Dokumentation für Stat
     "id": 1,
     "method": "vatIdCheck",
     "params": {
-        "vatId": "ÜÜU74538118",
+        "vatId": "ÜU74538118",
         "requesterVatID": "DE297464149",
         "companyName": "IQ Digital Health GmbH",
         "companyPostalCode": "5082",
