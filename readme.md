@@ -31,7 +31,7 @@ Systeme.
 Wenn du Interesse hast, eine eigene Integration gegen unsere API zu entwickeln, sende eine E-Mail an
 support@endereco.de.
 
-## DSGVO konform
+## DSGVO-konform
 
 Unsere API ist von Grund auf so konzipiert, dass sie bei korrekter Implementierung den Ansprüchen der DSGVO gerecht
 wird. Unser internes Datenschutz-Team prüft stets die aktuellen rechtlichen Anforderungen und sorgt für eine
@@ -49,7 +49,7 @@ Wie kannst du auf unsere API zugreifen?
    aus. Dort sind alle gängigen Anfragen schon vorformuliert.
    Die [Import-Datei](https://www.endereco.de/wp-content/uploads/2021/11/Endereco-API.postman_collection.json_.zip)
    wurde für die aktuelle Version von [Postman](https://www.postman.com/) erstellt.
-3. Falls du noch Fragen hast, such' dir den passenden Ansprechpartner aus folgender Liste aus.
+3. Falls du noch Fragen hast, such dir den passenden Ansprechpartner aus folgender Liste aus:
 
 ### Ansprechpartner
 
@@ -57,7 +57,7 @@ Wie kannst du auf unsere API zugreifen?
 |------------------------|-------------------|-------------------------|
 | Geschäftliche Fragen   | Robert Rieser     | info@endereco.de        |
 | Technische Fragen      | Ilja Weber        | support@endereco.de     |
-| Fragen zur Datenschutz | Lena Schmitt      | datenschutz@endereco.de |
+| Fragen zum Datenschutz | Lena Schmitt      | datenschutz@endereco.de |
 
 ## Request oder Session
 
@@ -68,12 +68,12 @@ Die Leistungen von Endereco sind kostenpflichtig. Dabei unterscheiden wir zwisch
 
 Endereco ermöglicht es Nutzern, eine Prüfung erst dann in Rechnung zu stellen, wenn diese tatsächlich einen Mehrwert
 liefert. Erst wenn ein bestimmter logisch zusammenhängender Datensatz (z.B. eine Lieferadresse) nach der Verarbeitung
-durch Endereco beim Nutzer verwendet oder gespeichert wird, rechnen wir ab.
+durch endereco beim Nutzer verwendet oder gespeichert wird, rechnen wir ab.
 
 Um die erfolgsbasierte Abrechnung zu ermöglichen, müssen die Anfragen in einer Session gebündelt werden. Dieses Vorgehen
 haben wir in [einer Anleitung](guidlines/sessions-guideline.md) beschrieben. Jede sessionbasierte Umsetzung wird gemeinsam mit
 euch von unserem Team abgenommen und vor dem Livegang freigegeben. Wenn du dazu noch Fragen hast, melde dich bei
-unseren [Ansprechspartnern](#ansprechpartner).
+unseren [Ansprechpartnern](#ansprechpartner).
 
 ## Authentifizierung
 
@@ -152,7 +152,7 @@ Die Struktur der API ist [hier](./structure-api.md) beschrieben
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/address-check.md)
+Siehe [Ausführliche Dokumentation](./services/address-check.md)
 
 ### Postleitzahlen-Autocomplete
 
@@ -223,7 +223,7 @@ Siehe [Aufführliche Dokumentation](./services/address-check.md)
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/post-code-autocomplete.md)
+Siehe [Ausführliche Dokumentation](./services/post-code-autocomplete.md)
 
 ### Orts-Autocomplete
 
@@ -286,7 +286,7 @@ Siehe [Aufführliche Dokumentation](./services/post-code-autocomplete.md)
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/city-name-autocomplete.md)
+Siehe [Ausführliche Dokumentation](./services/city-name-autocomplete.md)
 
 ### Straßen-Autocomplete
 
@@ -335,7 +335,7 @@ Siehe [Aufführliche Dokumentation](./services/city-name-autocomplete.md)
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/street-autocomplete.md)
+Siehe [Ausführliche Dokumentation](./services/street-autocomplete.md)
 
 ### E-Mail-Prüfung
 
@@ -367,7 +367,7 @@ Siehe [Aufführliche Dokumentation](./services/street-autocomplete.md)
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/email-check.md)
+Siehe [Ausführliche Dokumentation](./services/email-check.md)
 
 ### Namens-Prüfung
 
@@ -410,7 +410,7 @@ Siehe [Aufführliche Dokumentation](./services/email-check.md)
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/name-check.md)
+Siehe [Ausführliche Dokumentation](./services/name-check.md)
 
 ### Telefonnummern-Prüfung
 
@@ -462,7 +462,7 @@ Siehe [Aufführliche Dokumentation](./services/name-check.md)
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/phone-check.md)
+Siehe [Ausführliche Dokumentation](./services/phone-check.md)
 
 ### iBan-Prüfung
 
@@ -515,14 +515,14 @@ Siehe [Aufführliche Dokumentation](./services/phone-check.md)
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/iban-check.md)
+Siehe [Ausführliche Dokumentation](./services/iban-check.md)
 
 ### Umsatzsteuer-ID-Prüfung
 
 Die Umsatzsteuer-ID Nr. kann über eine einfache Abfrage oder über eine qualifizierte Abfrage validiert werden.
 
-1. Einfache Validierung: Die Umsatzsteuer-ID wird auf Gültigkeit geprüft, ohne nähere Details zu dieser abzugleichen.
-2. Qualifizierte Validierung: Die Umsatzsteuer-ID wird im Zusammenhang mit dem Firmennamen und der Firmenadresse abgefragt.
+1. Einfache Validierung: die Umsatzsteuer-ID wird auf Gültigkeit geprüft, ohne nähere Details zu dieser abzugleichen.
+2. Qualifizierte Validierung: die Umsatzsteuer-ID wird im Zusammenhang mit dem Firmennamen und der Firmenadresse abgefragt.
 
 *Beispiel 1: Einfache Validierung einer Umsatzsteuer-ID.*
 
@@ -553,7 +553,7 @@ Die Umsatzsteuer-ID Nr. kann über eine einfache Abfrage oder über eine qualifi
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/vat-id-check.md)
+Siehe [Ausführliche Dokumentation](./services/vat-id-check.md)
 
 *Beispiel 2: Qualifizierte Validierung einer Umsatzsteuer-ID.*
 
@@ -621,7 +621,7 @@ Siehe [Aufführliche Dokumentation](./services/vat-id-check.md)
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/vat-id-check-extended.md)
+Siehe [Ausführliche Dokumentation](./services/vat-id-check-extended.md)
 
 ### Firmensuche
 
@@ -671,7 +671,7 @@ Siehe [Aufführliche Dokumentation](./services/vat-id-check-extended.md)
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/company-autocomplete.md)
+Siehe [Ausführliche Dokumentation](./services/company-autocomplete.md)
 
 ### Lucid-Check
 
@@ -711,7 +711,7 @@ Siehe [Aufführliche Dokumentation](./services/company-autocomplete.md)
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/lucid-check.md)
+Siehe [Ausführliche Dokumentation](./services/lucid-check.md)
 
 ### Address-details
 
@@ -750,7 +750,7 @@ Siehe [Aufführliche Dokumentation](./services/lucid-check.md)
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/address-details.md)
+Siehe [Ausführliche Dokumentation](./services/address-details.md)
 
 ### Single-Line-Input
 
@@ -807,4 +807,4 @@ Siehe [Aufführliche Dokumentation](./services/address-details.md)
 }
 ```
 
-Siehe [Aufführliche Dokumentation](./services/address-single-line-autocomplete.md)
+Siehe [Ausführliche Dokumentation](./services/address-single-line-autocomplete.md)
